@@ -3,7 +3,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from secrets import sender_email, receiver_email, password
 
-def send_email(receiver_email, content):
+def send_email(receiver_email: str, content: str) -> str:
+    """Send an email to the given receiver_email with the given content."""
     msg = MIMEMultipart()
     msg["From"] = sender_email
     msg["To"] = receiver_email
@@ -21,4 +22,5 @@ def send_email(receiver_email, content):
     except Exception as e:
         print("Error:", e)
 
-send_email(receiver_email, "hello vaish have a good day.")
+if __name__ == "__main__":
+    send_email(receiver_email, "hello vaish have a good day.")
